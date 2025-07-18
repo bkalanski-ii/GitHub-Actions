@@ -9,6 +9,6 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/tests/setup.ts',
-    base: '/vite-deploy-demo/'
-  }
+  },
+  base: '/vite-deploy-demo/'
 } as UserConfig)
