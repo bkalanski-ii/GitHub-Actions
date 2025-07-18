@@ -10,5 +10,5 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/tests/setup.ts',
   },
-  base: '/vite-deploy-demo/'
+  base: '/'
 } as UserConfig)
