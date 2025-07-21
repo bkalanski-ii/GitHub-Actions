@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   test: {
-    // 👋 add the line below to add jsdom to vite
+    reporters: ['default', 'json-summary'],
     environment: 'jsdom',
     globals: true,
     setupFiles: './src/tests/setup.ts',
