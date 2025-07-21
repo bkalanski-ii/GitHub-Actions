@@ -27,3 +27,7 @@ jobs:
       - name: Report test coverage
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          name: "Frontend"
+          json-summary-path: "./coverage/coverage-final-frontend.json"
+          json-final-path: "./coverage/coverage-final-frontend.json"
