@@ -10,6 +10,7 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/tests/setup.ts',
     coverage: {
+      reporter: ['text', 'json-summary', 'json'],
       thresholds: {
         lines: 75,
         branches: 75,
