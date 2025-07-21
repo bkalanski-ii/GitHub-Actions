@@ -24,10 +24,26 @@ jobs:
       - name: Run tests
         run: npm run test-coverage
 
-      - name: Report test coverage
-        if: always()
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.artifact }}
+          path: coverage
+
+  report-coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Coverage Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-pull-request
+          path: coverage
+      - uses: actions/download-artifact@v4
+        with:
+          name: coverage-main
+          path: coverage-main
+      - name: Report Coverage
         uses: davelosert/vitest-coverage-report-action@v2
         with:
-          name: "Frontend"
-          json-summary-path: "./coverage/coverage-final-frontend.json"
-          json-final-path: "./coverage/coverage-final-frontend.json"
+          json-summary-compare-path: ./coverage/coverage-final.json
